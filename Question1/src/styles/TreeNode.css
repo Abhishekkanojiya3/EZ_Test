@@ -1,0 +1,159 @@
+.tree-node {
+  margin-bottom: 4px;
+  user-select: none;
+}
+
+.node-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background-color: #fafafa;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.node-content:hover {
+  background-color: #f0f0f0;
+  border-color: #e0e0e0;
+}
+
+.node-content.dragging {
+  background-color: #e3f2fd;
+  border-color: #2196f3;
+  opacity: 0.7;
+}
+
+.expand-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 4px 8px;
+  color: #666;
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+}
+
+.expand-btn:hover:not(:disabled) {
+  color: #333;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.expand-btn.expanded {
+  transform: rotate(0deg);
+}
+
+.expand-btn:disabled {
+  opacity: 0.6;
+}
+
+.expand-placeholder {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.node-label {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  cursor: text;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.node-label:hover {
+  background-color: rgba(102, 126, 234, 0.1);
+}
+
+.edit-input {
+  flex: 1;
+  padding: 6px 8px;
+  border: 2px solid #667eea;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+}
+
+.edit-input:focus {
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.node-actions {
+  display: flex;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.node-content:hover .node-actions {
+  opacity: 1;
+}
+
+.action-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+}
+
+.action-btn:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+  transform: scale(1.1);
+}
+
+.action-btn:active {
+  transform: scale(0.95);
+}
+
+.edit-btn:hover {
+  background-color: rgba(33, 150, 243, 0.1);
+}
+
+.add-btn:hover {
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.delete-btn:hover {
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+.children-container {
+  margin-top: 4px;
+  border-left: 2px solid #e0e0e0;
+  padding-left: 8px;
+  margin-left: 8px;
+}
+
+/* Loading state */
+.expand-btn:disabled {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
